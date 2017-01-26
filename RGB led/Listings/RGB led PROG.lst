@@ -1,0 +1,194 @@
+C51 COMPILER V9.55   RGB_LED_PROG                                                          09/30/2016 20:03:53 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE RGB_LED_PROG
+OBJECT MODULE PLACED IN RGB led PROG.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE RGB led PROG.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\RGB led PROG.lst) TABS(2)
+
+line level    source
+
+   1          #include <reg2051.h>
+   2           void delay_ms(unsigned int ms_count);
+   3           void delay_us(unsigned int us_count);
+   4          #define RGB P3                             //   Port 3 in 8bit mode declaration
+   5          sbit red = P3^0;
+   6          sbit green = P3^1;
+   7          sbit blue = P3^2;
+   8          sbit SW1 = P1^0;                           // Multiple color
+   9          sbit SW2 = P1^1;                           // Yellow Color
+  10          sbit SW3 = P1^2;                           // Cyan Color
+  11          sbit SW4 = P1^3;                           // Magenta Color
+  12          void delay_sec(unsigned char sec_count)
+  13           {
+  14   1           while(sec_count!=0)
+  15   1            {
+  16   2               delay_ms(1000);    //1sec delay
+  17   2               sec_count--;
+  18   2              }
+  19   1       }
+  20           void delay_ms(unsigned int ms_count)
+  21           {
+  22   1              while(ms_count!=0)
+  23   1               {
+  24   2                  delay_us(112);   //1ms delay
+  25   2                   ms_count--;
+  26   2                  }
+  27   1         }
+  28          void delay_us(unsigned int us_count)
+  29           {  
+  30   1          while(us_count!=0)
+  31   1            {
+  32   2               us_count--;
+  33   2             }
+  34   1         }   
+  35          void main()
+  36          {
+  37   1      red =1;
+  38   1      green=1;
+  39   1      blue=1;
+  40   1      SW1=1;
+  41   1      SW2=1;
+  42   1      SW3=1;
+  43   1      SW4=1;
+  44   1      
+  45   1      red =0; // red led on state
+  46   1      delay_sec(3);
+  47   1      red=1;
+  48   1      delay_sec(3); 
+  49   1        
+  50   1      green=0;//green led on state 
+  51   1      delay_sec(3);
+  52   1      green=1;
+  53   1      delay_sec(3);
+  54   1      
+C51 COMPILER V9.55   RGB_LED_PROG                                                          09/30/2016 20:03:53 PAGE 2   
+
+  55   1      blue=0;;//blue led on state 
+  56   1      delay_sec(3);
+  57   1      blue=1;
+  58   1      delay_sec(3); 
+  59   1      
+  60   1      while(1)
+  61   1      {
+  62   2      unsigned int x=0,y=1500,z=0;
+  63   2      if(SW1 == 0)                        // Multiple Color
+  64   2      {
+  65   3      y=y;z=z;
+  66   3      while(y!=0)//red gree ON
+  67   3      {
+  68   4      z=z+10;
+  69   4      y=y-10;
+  70   4      RGB=0xf8;  
+  71   4      delay_us(y);
+  72   4      RGB=0xfc;    
+  73   4      delay_us(z);
+  74   4      }  
+  75   3      y=y;z=z;
+  76   3      while(z!=0)//red blue ON
+  77   3      {
+  78   4      z=z-10;
+  79   4      y=y+10;
+  80   4      RGB=0xf8;  
+  81   4      delay_us(y);
+  82   4      RGB=0xfa;   
+  83   4      delay_us(z);
+  84   4      }
+  85   3      y=y;z=z;
+  86   3      while(y!=0)//blue gree ON
+  87   3      {
+  88   4      z=z+10;
+  89   4      y=y-10;
+  90   4      RGB=0xf8;  
+  91   4      delay_us(y);
+  92   4      RGB=0xf9;    
+  93   4      delay_us(z);
+  94   4      }  
+  95   3      y=y;z=z;
+  96   3      while(z!=0)//RED ON BLUE GREEN CHANGES
+  97   3      {
+  98   4      z=z-10;
+  99   4      y=y+10;
+ 100   4      RGB=0xf8;  
+ 101   4      delay_us(y);
+ 102   4      RGB=0xfe;    
+ 103   4      delay_us(z);
+ 104   4      }  
+ 105   3      y=y;z=z;  
+ 106   3      while(z!=0)//GREEN ON BLUE RED CHANGES
+ 107   3      {
+ 108   4      z=z-10;
+ 109   4      y=y+10;
+ 110   4      RGB=0xf8;  
+ 111   4      delay_us(y);
+ 112   4      RGB=0xfd;    
+ 113   4      delay_us(z);
+ 114   4      }  
+ 115   3      y=y;z=z;   
+ 116   3      while(z!=0)//BLUE ON RED GREEN CHANGES
+C51 COMPILER V9.55   RGB_LED_PROG                                                          09/30/2016 20:03:53 PAGE 3   
+
+ 117   3      {
+ 118   4      z=z-10;
+ 119   4      y=y+10;
+ 120   4      RGB=0xf8;  
+ 121   4      delay_us(y);
+ 122   4      RGB=0xfb;    
+ 123   4      delay_us(z);
+ 124   4      }  
+ 125   3      RGB=0xff;
+ 126   3      y=y;z=z;
+ 127   3      }
+ 128   2      if(SW2 == 0)                 //   Yellow Color 
+ 129   2      {
+ 130   3      red=0; 
+ 131   3      green=0;
+ 132   3      delay_sec(3);
+ 133   3      red=1;
+ 134   3      green=1;
+ 135   3      delay_sec(1);
+ 136   3      }
+ 137   2      if(SW3 == 0)                //     Cyan Color
+ 138   2      {
+ 139   3      blue=0;
+ 140   3      green=0; 
+ 141   3      delay_sec(3);
+ 142   3      blue=1;
+ 143   3      green=1;
+ 144   3      delay_sec(1); 
+ 145   3      }
+ 146   2      if(SW4 == 0)                //     Megenta Color 
+ 147   2      {
+ 148   3      red=0;
+ 149   3      blue=0;
+ 150   3      delay_sec(3);
+ 151   3      red=1;
+ 152   3      blue=1;
+ 153   3      delay_sec(1); 
+ 154   3      }
+ 155   2      
+ 156   2      }
+ 157   1      }
+ 158          
+ 159          
+ 160          
+ 161          
+ 162          
+ 163          
+ 164          
+ 165          
+ 166          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    393    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

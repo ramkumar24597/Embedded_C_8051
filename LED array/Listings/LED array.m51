@@ -1,0 +1,80 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/02/2016  23:26:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE LED array PROG.obj TO LED array PRINT (.\Listings\LED array.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  LED array PROG.obj (LED_ARRAY_PROG)
+
+
+LINK MAP OF MODULE:  LED array (LED_ARRAY_PROG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+                    0000H     0800H                  *** GAP ***
+            CODE    0800H     0011H     UNIT         ?PR?MIAN?LED_ARRAY_PROG
+
+
+
+OVERLAY MAP OF MODULE:   LED array (LED_ARRAY_PROG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+
+
+SYMBOL TABLE OF MODULE:  LED array (LED_ARRAY_PROG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_ARRAY_PROG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.0       PUBLIC        LED1
+  B:0090H.1       PUBLIC        LED2
+  B:0090H.2       PUBLIC        LED3
+  B:0090H.3       PUBLIC        LED4
+  B:0090H.4       PUBLIC        LED5
+  B:0090H.5       PUBLIC        LED6
+  B:0090H.6       PUBLIC        LED7
+  B:0090H.7       PUBLIC        LED8
+  C:0800H         PUBLIC        mian
+  -------         PROC          MIAN
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0800H         LINE#         13
+  C:0802H         LINE#         14
+  C:0804H         LINE#         15
+  C:0806H         LINE#         16
+  C:0808H         LINE#         17
+  C:080AH         LINE#         18
+  C:080CH         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/02/2016  23:26:50  PAGE 2
+
+
+  C:080EH         LINE#         20
+  C:0810H         LINE#         22
+  -------         ENDPROC       MIAN
+  -------         ENDMOD        LED_ARRAY_PROG
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MIAN?LED_ARRAY_PROG
+
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0011H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=0.0 xdata=0 code=17
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,47 @@
+http://www.8052.com/tutser.phtml
+First, lets present the "Serial Control" (SCON) SFR and define what each bit of the SFR represents:
+
+Bit	Name	Bit Addres	Explanation of Function
+7	SM0	9Fh	Serial port mode bit 0
+6	SM1	9Eh	Serial port mode bit 1.
+5	SM2	9Dh	Mutliprocessor Communications Enable (explained later)
+4	REN	9Ch	Receiver Enable. This bit must be set in order to receive characters.
+3	TB8	9Bh	Transmit bit 8. The 9th bit to transmit in mode 2 and 3.
+2	RB8	9Ah	Receive bit 8. The 9th bit received in mode 2 and 3.
+1	TI	99h	Transmit Flag. Set when a byte has been completely transmitted.
+0	RI	98h	Receive Flag. Set when a byte has been completely received.
+Additionally, it is necessary to define the function of SM0 and SM1 by an additional table:
+
+SM0	SM1	Serial Mode	Explanation	Baud Rate
+0	0	0	8-bit Shift Register	Oscillator / 12
+0	1	1	8-bit UART	Set by Timer 1 (*)
+1	0	2	9-bit UART	Oscillator / 64 (*)
+1	1	3	9-bit UART	Set by Timer 1 (*)
+(*) Note: The baud rate indicated in this table is doubled if PCON.7 (SMOD) is set.
+
+--------------------------------------------------------------------------------------------------------------
+http://iitestudent.blogspot.in/2011/11/scon-serial-control-register.html
+
+SCON (serial control) Register
+Its used to program the start bit, the stop bit and the data bits of data framing among other things.
+8 bit register from MSB ---- to ----- LSB
+SM0
+SM1
+SM2
+REN
+TB8
+RB8
+T1
+R1
+
+This enables multiprocessing capabilities of 8051. Usually set to 0
+REN
+Also referred to as SCON.4 as SCON is a bit addressable register. This is receive enable. When high or 1 it allows 8051 to receive data from RxD pin.  Used or access as SET SCON.4 and CLR SCON.4. very useful in blocking external serial reception.
+TB8
+Transfer bit 8. Used for serial mode 2 and 3 not generally used so set it always to 0
+RB8
+Receive bit 8. Again used for serial mode 2 and 3 not used so set it to 0
+T1
+Transmit interrupt. Important flag bit in SCON register. When 8051 finishes transfer of 8 bit character, it raises the T1 flag to indicate that it is ready to transfer another byte. Is used at beginning of stop bit.
+R1
+Receive interrupt. Another important flag bit in SCON register. When 8051 finishes receiving data i.e when data is successfully stored in SBUF it raises R1 flag to indicate byte is received and to be picked before it gets lost.

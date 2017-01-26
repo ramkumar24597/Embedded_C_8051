@@ -1,0 +1,53 @@
+C51 COMPILER V9.55   TMOD_TEST                                                             10/21/2016 19:09:12 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE TMOD_TEST
+OBJECT MODULE PLACED IN TMOD_test.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE TMOD_test.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\TMOD_test.lst) TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit pin = P2^0;
+   3          void delay1ms(unsigned int i)
+   4          {     
+   5   1        int c=0;
+   6   1        while (c<i)
+   7   1        {
+   8   2          TMOD=0x01;
+   9   2          TH0=0xFC;
+  10   2          TL0=0x66;
+  11   2          TR0= 1;
+  12   2          c++;
+  13   2          while(!TF0);
+  14   2          TR0=0;
+  15   2          TF0=0;
+  16   2        }           
+  17   1        
+  18   1      }
+  19          void main()
+  20          {
+  21   1        while(1)
+  22   1        {
+  23   2          pin = 1;
+  24   2          delay1ms(1000);
+  25   2          pin = 0;
+  26   2          delay1ms(1000);
+  27   2        }
+  28   1                       
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

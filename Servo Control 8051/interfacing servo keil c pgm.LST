@@ -1,0 +1,80 @@
+C51 COMPILER V9.55   INTERFACING_SERVO_KEIL_C_PGM                                          09/16/2016 08:29:59 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE INTERFACING_SERVO_KEIL_C_PGM
+OBJECT MODULE PLACED IN interfacing servo keil c pgm.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE interfacing servo keil c pgm.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTE
+                    -ND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<stdio.h>
+   3          #include "intrins.h"
+   4          
+   5          
+   6          sbit motor_pin = P2^0;
+   7          void Delay(unsigned int);
+   8          void Delay_servo(unsigned int);
+   9          void main()
+  10          {
+  11   1        motor_pin = 0;
+  12   1        
+  13   1       do
+  14   1       {
+  15   2         //Turn to 0 degree
+  16   2         motor_pin = 1;
+  17   2         Delay_servo(50);
+  18   2         motor_pin = 0;
+  19   2         
+  20   2         Delay(1000);
+  21   2      
+  22   2         //Turn to 90 degree
+  23   2         motor_pin=1;
+  24   2         Delay_servo(114);
+  25   2         motor_pin=0;
+  26   2         
+  27   2         Delay(1000);
+  28   2      
+  29   2         
+  30   2         //Turn to 180 degree
+  31   2         motor_pin=1;
+  32   2         Delay_servo(170);
+  33   2         motor_pin=0;
+  34   2         
+  35   2         Delay(1000);
+  36   2       }while(1);
+  37   1      }
+  38          
+  39          void Delay(unsigned int ms)
+  40          {
+  41   1        unsigned long int us = ms*1000;
+  42   1        while(us--)
+  43   1        {
+  44   2          _nop_();
+  45   2        }   
+  46   1      }
+  47          
+  48          void Delay_servo(unsigned int us)
+  49          {
+  50   1        while(us--)
+  51   1        {
+  52   2          _nop_();
+  53   2        }   
+  54   1      }
+C51 COMPILER V9.55   INTERFACING_SERVO_KEIL_C_PGM                                          09/16/2016 08:29:59 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     93    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

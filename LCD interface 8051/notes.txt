@@ -1,0 +1,12 @@
+important things while u display something in lcd is u need to do 3 things that are
+
+--- blink it 
+--- clear previous values
+--- moving cursor
+
+for these cmds are 0x0E,0x01,0x06
+REF{
+lcdcmd(0x0E);                     //turn display ON for cursor blinking
+lcdcmd(0x01);                     //clear screen
+lcdcmd(0x06);                     //increment
+}

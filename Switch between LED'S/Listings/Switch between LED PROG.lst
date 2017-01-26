@@ -1,0 +1,80 @@
+C51 COMPILER V9.55   SWITCH_BETWEEN_LED_PROG                                               08/02/2016 23:07:40 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE SWITCH_BETWEEN_LED_PROG
+OBJECT MODULE PLACED IN Switch between LED PROG.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Switch between LED PROG.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\Switch between LED PROG.lst) TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit LEDY = P1^0;
+   3          sbit LEDR = P1^1;
+   4          sbit LEDG = P1^2;
+   5          sbit LEDB = P1^3;
+   6          sbit SWTY = P0^0;
+   7          sbit SWTR = P0^1;
+   8          sbit SWTG = P0^2;
+   9          sbit SWTB = P0^3;
+  10          void delay(int);
+  11          void main(void)
+  12          {
+  13   1        LEDY = 1;
+  14   1        LEDR = 1;
+  15   1        LEDG = 1;
+  16   1        LEDB = 1;
+  17   1        SWTY = 1;
+  18   1        SWTR = 1;
+  19   1        SWTG = 1;
+  20   1        SWTB = 1;
+  21   1          if(SWTY == 0)
+  22   1          {
+  23   2            LEDY = 0;
+  24   2            delay(50000);
+  25   2            
+  26   2          }
+  27   1          if(SWTR == 0)
+  28   1          {
+  29   2            LEDR = 0;
+  30   2            delay(50000);
+  31   2          }
+  32   1          if(SWTG == 0)
+  33   1          {
+  34   2            LEDG = 0;
+  35   2            delay(50000);
+  36   2          }
+  37   1          if(SWTB == 0)
+  38   1          {
+  39   2            LEDB = 0;
+  40   2            delay(50000);
+  41   2          }
+  42   1        
+  43   1        
+  44   1      }
+  45          void delay(int k)
+  46          {
+  47   1        int j,i;
+  48   1        for(i=0;i<k;i++)
+  49   1        {
+  50   2          for(j=0;j<100;j++)
+  51   2          {
+  52   3          }
+  53   2        }
+  54   1      }
+C51 COMPILER V9.55   SWITCH_BETWEEN_LED_PROG                                               08/02/2016 23:07:40 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     91    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,28 @@
+TMOD represents which timer u r gonna use and in which mode u r gonna use that timer 
+by means of hexa code starts with 0x next two digit represents the hexa value and compare it with TMOD SFR table
+
+then u will get an clear idea about TMOD....
+
+8051 Micro Controller Delay generation process
+
+1.      Load the TMOD value register indicating which timer (timer 0 or timer 1) is to be used and which timer mode (0 or 1) is selected.
+2.      Load registers TL and TH with initial count value.
+3.      Start the timer.
+4.      Keep monitoring the timer flag (TF). if it is raised,
+5.      ÉStop the timer.
+6.      Clear the TF flag for the next round
+7.      Go back to Step 2 to load TH and TL again.
+
+How to calculate values to be loaded into TH and TL 
+
+Assume XTAL = 11.0592 MHz, we can use the following steps for finding the TH and TL registersí values,
+1.      Divide the desired time delay by 1.085 us.
+2.      Calculate 65536 ñ n, where n is the decimal value we got in Step1.
+3.      Convert the result of Step2 to hex, where yyxx is the initial hex value to be loaded into the timerís register
+4.      Set TL = xx and TH = yy.
+
+
+thank u..
+fuck u...
+
+for 1ms TH0 = FC; TL0 = 66;

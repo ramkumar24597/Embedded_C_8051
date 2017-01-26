@@ -1,0 +1,3 @@
+"7_segment_in_8051.obj" 
+TO "7_segment_in_8051" 
+PRINT(".\Listings\7_segment_in_8051.m51")

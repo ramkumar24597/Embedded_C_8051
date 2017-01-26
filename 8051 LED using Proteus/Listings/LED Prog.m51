@@ -1,0 +1,75 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/21/2016  23:20:45  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE LED blink Pro 1.obj TO LED Prog PRINT (.\Listings\LED Prog.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  LED blink Pro 1.obj (LED_BLINK_PRO_1)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  LED Prog (LED_BLINK_PRO_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     000CH     UNIT         ?C_C51STARTUP
+            CODE    080CH     0008H     UNIT         ?PR?MAIN?LED_BLINK_PRO_1
+
+
+
+OVERLAY MAP OF MODULE:   LED Prog (LED_BLINK_PRO_1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED_BLINK_PRO_1
+
+
+
+SYMBOL TABLE OF MODULE:  LED Prog (LED_BLINK_PRO_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_BLINK_PRO_1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:080CH         PUBLIC        main
+  B:0090H.0       PUBLIC        LED
+  -------         PROC          MAIN
+  C:080CH         LINE#         3
+  C:080CH         LINE#         4
+  C:080CH         LINE#         5
+  C:080EH         LINE#         6
+  C:080EH         LINE#         7
+  C:080EH         LINE#         8
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/21/2016  23:20:45  PAGE 2
+
+
+  C:0810H         LINE#         9
+  C:0812H         LINE#         10
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_BLINK_PRO_1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0008H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=23
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

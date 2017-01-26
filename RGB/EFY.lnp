@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"EFY.obj" 
+TO "EFY" 
+CODE( 0X0000-0X07FF )

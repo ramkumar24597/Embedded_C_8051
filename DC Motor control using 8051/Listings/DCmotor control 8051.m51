@@ -1,0 +1,191 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/12/2016  10:05:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE DC Motor Control.obj TO DCmotor control 8051 PRINT (.\Listings\DCmotor control 8051.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  DC Motor Control.obj (DC_MOTOR_CONTROL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  DCmotor control 8051 (DC_MOTOR_CONTROL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0033H     UNIT         ?PR?MAIN?DC_MOTOR_CONTROL
+            CODE    0833H     002EH     UNIT         ?PR?_DELAY_MS?DC_MOTOR_CONTROL
+            CODE    0861H     000CH     UNIT         ?C_C51STARTUP
+            CODE    086DH     0009H     UNIT         ?PR?FORWARD?DC_MOTOR_CONTROL
+            CODE    0876H     0009H     UNIT         ?PR?BACKWARD?DC_MOTOR_CONTROL
+            CODE    087FH     0009H     UNIT         ?PR?LEFT?DC_MOTOR_CONTROL
+            CODE    0888H     0009H     UNIT         ?PR?RIGHT?DC_MOTOR_CONTROL
+            CODE    0891H     0009H     UNIT         ?PR?STOP?DC_MOTOR_CONTROL
+
+
+
+OVERLAY MAP OF MODULE:   DCmotor control 8051 (DC_MOTOR_CONTROL)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DC_MOTOR_CONTROL
+
+?PR?MAIN?DC_MOTOR_CONTROL
+  +--> ?PR?_DELAY_MS?DC_MOTOR_CONTROL
+  +--> ?PR?FORWARD?DC_MOTOR_CONTROL
+  +--> ?PR?BACKWARD?DC_MOTOR_CONTROL
+  +--> ?PR?LEFT?DC_MOTOR_CONTROL
+  +--> ?PR?RIGHT?DC_MOTOR_CONTROL
+  +--> ?PR?STOP?DC_MOTOR_CONTROL
+
+?PR?_DELAY_MS?DC_MOTOR_CONTROL
+  +--> ?PR?STOP?DC_MOTOR_CONTROL
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/12/2016  10:05:36  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  DCmotor control 8051 (DC_MOTOR_CONTROL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DC_MOTOR_CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:0090H.1       PUBLIC        left_frontpin
+  B:0080H.2       PUBLIC        right_control
+  B:0080H.1       PUBLIC        left_control
+  C:0888H         PUBLIC        right
+  B:00A0H.7       PUBLIC        buzzer
+  C:0800H         PUBLIC        main
+  C:087FH         PUBLIC        left
+  C:0876H         PUBLIC        backward
+  C:0891H         PUBLIC        stop
+  C:0841H         PUBLIC        _delay_ms
+  B:0090H.3       PUBLIC        right_backpin
+  B:0090H.0       PUBLIC        left_backpin
+  B:0090H.2       PUBLIC        right_frontpin
+  C:086DH         PUBLIC        forward
+  C:0837H         SYMBOL        L?0019
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:0837H         SYMBOL        L?0019
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:0841H         LINE#         17
+  C:0841H         LINE#         18
+  C:0841H         LINE#         20
+  C:084BH         LINE#         21
+  C:0860H         LINE#         22
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          FORWARD
+  C:086DH         LINE#         24
+  C:086DH         LINE#         25
+  C:086DH         LINE#         26
+  C:086FH         LINE#         27
+  C:0871H         LINE#         28
+  C:0873H         LINE#         29
+  C:0875H         LINE#         30
+  -------         ENDPROC       FORWARD
+  -------         PROC          BACKWARD
+  C:0876H         LINE#         31
+  C:0876H         LINE#         32
+  C:0876H         LINE#         33
+  C:0878H         LINE#         34
+  C:087AH         LINE#         35
+  C:087CH         LINE#         36
+  C:087EH         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/12/2016  10:05:36  PAGE 3
+
+
+  -------         ENDPROC       BACKWARD
+  -------         PROC          LEFT
+  C:087FH         LINE#         39
+  C:087FH         LINE#         40
+  C:087FH         LINE#         41
+  C:0881H         LINE#         42
+  C:0883H         LINE#         43
+  C:0885H         LINE#         44
+  C:0887H         LINE#         46
+  -------         ENDPROC       LEFT
+  -------         PROC          RIGHT
+  C:0888H         LINE#         47
+  C:0888H         LINE#         48
+  C:0888H         LINE#         50
+  C:088AH         LINE#         51
+  C:088CH         LINE#         52
+  C:088EH         LINE#         53
+  C:0890H         LINE#         55
+  -------         ENDPROC       RIGHT
+  -------         PROC          STOP
+  C:0891H         LINE#         56
+  C:0891H         LINE#         57
+  C:0891H         LINE#         59
+  C:0893H         LINE#         60
+  C:0895H         LINE#         61
+  C:0897H         LINE#         62
+  C:0899H         LINE#         64
+  -------         ENDPROC       STOP
+  -------         PROC          MAIN
+  C:0800H         LINE#         65
+  C:0800H         LINE#         66
+  C:0800H         LINE#         68
+  C:0802H         LINE#         69
+  C:0804H         LINE#         70
+  C:0806H         LINE#         72
+  C:0806H         LINE#         73
+  C:0806H         LINE#         74
+  C:0808H         LINE#         75
+  C:080FH         LINE#         76
+  C:0812H         LINE#         77
+  C:0812H         LINE#         78
+  C:0812H         LINE#         79
+  C:0815H         LINE#         80
+  C:0818H         LINE#         81
+  C:0818H         LINE#         82
+  C:0818H         LINE#         83
+  C:081BH         LINE#         84
+  C:081EH         LINE#         85
+  C:081EH         LINE#         86
+  C:081EH         LINE#         87
+  C:0821H         LINE#         88
+  C:0824H         LINE#         89
+  C:082BH         LINE#         90
+  C:082EH         LINE#         91
+  C:0831H         LINE#         93
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DC_MOTOR_CONTROL
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/12/2016  10:05:36  PAGE 4
+
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008EH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=157
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

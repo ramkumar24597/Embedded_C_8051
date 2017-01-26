@@ -1,0 +1,46 @@
+C51 COMPILER V9.55   LED_ARRAY_PROG                                                        08/02/2016 23:26:49 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE LED_ARRAY_PROG
+OBJECT MODULE PLACED IN LED array PROG.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LED array PROG.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\LED array PROG.lst) TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit LED1 = P1^0;
+   3          sbit LED2 = P1^1;
+   4          sbit LED3 = P1^2;
+   5          sbit LED4 = P1^3;
+   6          sbit LED5 = P1^4;
+   7          sbit LED6 = P1^5;
+   8          sbit LED7 = P1^6;
+   9          sbit LED8 = P1^7;
+  10          
+  11          void mian()
+  12          {
+  13   1        LED1 = 0;
+  14   1        LED2 = 0;
+  15   1        LED3 = 0;
+  16   1        LED4 = 0;
+  17   1        LED5 = 0;
+  18   1        LED6 = 0;
+  19   1        LED7 = 0;
+  20   1        LED8 = 0; 
+  21   1        
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

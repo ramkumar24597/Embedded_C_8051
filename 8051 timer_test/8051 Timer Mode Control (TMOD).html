@@ -1,0 +1,110 @@
+
+<!-- saved from url=(0092)http://www.csee.umbc.edu/courses/undergraduate/CMSC391/summer04/burt/lectures/arch/TMOD.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title> 8051 Timer Mode Control (TMOD) </title>
+</head>
+<body text="#000000" link="#0000ff" vlink="#800080" bgcolor="#ffffff">
+  <table width="100%">
+    <tbody><tr>
+      <td><font size="+3">UMBC</font></td>
+      <td><b><font color="#ff0000" size="+2">CMSC 391 -- Programming Microcontrollers</font></b></td>
+      <td> &nbsp; </td>
+  </tr>
+  </tbody></table>
+<p>
+</p><hr size="4">
+<center>
+<h2> 8051 Timer Mode Control (TMOD) Special Function Register </h2>
+</center>
+
+<center>
+<table border="" cellspacing="2" bordercolor="#000000" cellpadding="7">
+<tbody><tr>
+  <th align="CENTER">Bit</th>
+  <th>TMOD Bit Function</th>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">7</td>
+  <td valign="TOP">Gate -- OR gate enable bit which controls RUN/STOP of timer 1.  Set to 1 by program to 
+enable timer to run if bit TR1 in TCON is set and signal on external interrupt <strike>INT1</strike> is high.  Cleared to 0 by program to enable time to run if bit TR1 is set.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">6</td>
+  <td valign="TOP">C/<strike>T</strike> -- Set to 1 by program to make timer 1 act as a counter by counting pulses from external input pins 3.5.  Cleared to zero by program to make timer act as a timer by counting internal frequency.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">5</td>
+  <td valign="TOP">M1 -- Timer/counter operating mode select bit 1.  Set/cleared by program to select mode.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">4</td>
+  <td valign="TOP">M0 -- Timer/counter operating mode select bit 0.  Set/cleared by program to select mode.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">3</td>
+  <td valign="TOP">Gate -- OR gate enable bit which controls RUN/STOP of timer 0.  Set to 1 by program to enable timer to run if bit TR0 in TCON is set and signal on external interrupt <strike>INT0</strike> is high.  Cleared to 0 by program to enable time to run if bit TR0 is set.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">2</td>
+  <td valign="TOP">C/<strike>T</strike> -- Set to 1 by program to make timer 0 act as a counter by counting pulses from external input pin 3.4.  Cleared to zero by program to make timer act as a timer by counting internal frequency.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">1</td>
+  <td valign="TOP">M1 -- Timer/counter operating mode select bit 1.  Set/cleared by program to select mode.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">0</td>
+  <td valign="TOP">M0 -- Timer/counter operating mode select bit 0.  Set/cleared by program to select mode.</td>
+</tr>
+</tbody></table>
+<p>
+
+<table border="" cellspacing="1" cellpadding="7">
+<tbody><tr>
+  <th>M1</th>
+  <th>M0</th>
+  <th>Mode</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td align="CENTER">0</td>
+  <td align="CENTER">0</td>
+  <td align="CENTER">0</td>
+  <td>Use the THX register as an 8-bit counter and the TLX as a 5-bit counter.</td>
+</tr>
+<tr>
+  <td align="CENTER">0</td>
+  <td align="CENTER">1</td>
+  <td align="CENTER">1</td>
+  <td>Use the THX register as an 8-bit counter and the TLX as an 8-bit counter.</td>
+</tr>
+<tr>
+  <td align="CENTER">1</td>
+  <td align="CENTER">0</td>
+  <td align="CENTER">2</td>
+  <td>Use only the TLX register as an 8-bit counter.</td>
+</tr>
+<tr>
+  <td valign="TOP" align="CENTER">1</td>
+  <td valign="TOP" align="CENTER">1</td>
+  <td valign="TOP" align="CENTER">3</td>
+  <td valign="TOP">In modes 0 - 2, Timers 0 and 1 may be programmed independently.<p>
+      In mode 3:</p><p>
+      Timer 0 in mode 3 becomes two separate 8-bit counters.</p><p>
+      Timer 1 in mode 3 may still be used, but will generate no interrupts.</p></td>
+</tr>
+</tbody></table>
+
+</p><p>&nbsp;</p>
+<p>TMOD is not bit addressable. <br>
+Direct Byte Address is 89h.</p>
+</center>
+
+<p>The only difference in counting and time is the source of the clock pulses to the counters.  
+</p><p></p><hr size="4"><p></p>
+<p>
+</p><h4>©2004, Gary L. Burt</h4>
+
+
+
+</body></html>

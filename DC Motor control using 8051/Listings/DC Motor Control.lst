@@ -1,0 +1,120 @@
+C51 COMPILER V9.55   DC_MOTOR_CONTROL                                                      08/12/2016 10:05:36 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE DC_MOTOR_CONTROL
+OBJECT MODULE PLACED IN DC Motor Control.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DC Motor Control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\DC Motor Control.lst) TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          void delay_ms(unsigned int);
+   3          void forward(void);
+   4          void backward(void);
+   5          void left(void);
+   6          void right(void);
+   7          void stop(void);
+   8          
+   9          sbit left_backpin = P1^0;
+  10          sbit left_frontpin = P1^1;
+  11          sbit right_frontpin = P1^2;
+  12          sbit right_backpin = P1^3;
+  13          sbit left_control= P0^1;
+  14          sbit right_control = P0^2;
+  15          sbit buzzer = P2^7;
+  16          
+  17          void delay_ms(unsigned int ms)
+  18           {
+  19   1         unsigned int x,y;
+  20   1         for(x=0;x<ms;x++)
+  21   1          for(y=0;y<1000;y++);
+  22   1       }
+  23           
+  24           void forward(void)
+  25          {
+  26   1       right_frontpin=1;
+  27   1       left_frontpin=1;
+  28   1       right_backpin=0;
+  29   1       left_backpin=0;
+  30   1      }
+  31           void backward(void)
+  32          {
+  33   1       right_frontpin=0;
+  34   1       left_frontpin=0;
+  35   1       right_backpin=1;
+  36   1       left_backpin=1;
+  37   1        
+  38   1      }
+  39          void left(void)
+  40          {
+  41   1       right_frontpin=1;
+  42   1       left_frontpin=0;
+  43   1       right_backpin=0;
+  44   1       left_backpin=1;
+  45   1      
+  46   1      }
+  47          void right(void)
+  48          {
+  49   1      
+  50   1       right_frontpin=0;
+  51   1       left_frontpin=1;
+  52   1       right_backpin=1;
+  53   1       left_backpin=0;
+  54   1      
+C51 COMPILER V9.55   DC_MOTOR_CONTROL                                                      08/12/2016 10:05:36 PAGE 2   
+
+  55   1      }
+  56          void stop(void)
+  57          {
+  58   1      
+  59   1       right_frontpin=0;
+  60   1       left_frontpin=0;
+  61   1       right_backpin=0;
+  62   1       left_backpin=0;
+  63   1      
+  64   1      }
+  65          void main (void)
+  66          {
+  67   1      
+  68   1      buzzer=1;     
+  69   1      left_control=1;  
+  70   1      right_control=1;
+  71   1               
+  72   1      while(1)
+  73   1      {
+  74   2      buzzer = 1;
+  75   2      delay_ms(2000); 
+  76   2      forward();
+  77   2      delay_ms(2000);
+  78   2      stop();
+  79   2      delay_ms(1000);
+  80   2      backward();
+  81   2      delay_ms(2000);
+  82   2      stop();
+  83   2      delay_ms(1000); 
+  84   2      left();
+  85   2      delay_ms(2000); 
+  86   2      stop();
+  87   2      delay_ms(1000);
+  88   2      right();
+  89   2      delay_ms(2000); 
+  90   2      stop();
+  91   2      delay_ms(2000); 
+  92   2      
+  93   2      }
+  94   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
